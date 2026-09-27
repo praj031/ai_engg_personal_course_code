@@ -1,0 +1,19 @@
+[project]
+name = "ai-engg-live"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "praj", email = "pritishraj.official@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.13.5",
+]
+
+[project.scripts]
+ai-engg-live = "ai_engg_live:main"
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
