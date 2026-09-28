@@ -111,3 +111,5 @@ Commands used today:
 
 
 ## Lecture : 27-9-2026
+
+As part of this lecture, we will be studying OOP's & API call & Exception Handling 
