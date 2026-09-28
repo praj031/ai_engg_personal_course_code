@@ -108,3 +108,6 @@ Commands used today:
 - `uv add pydantic` - add a new Python dependency using uv.
 - `uv lock` - update the lock file.
 - `uv sync` - install dependencies from the lock file.
+
+
+## Lecture : 27-9-2026
