@@ -1,180 +1,171 @@
-# AI Engineering - Live Class Code Repository
+# AI Engineering - Live Course Repository
 
-Welcome! This repository contains all the code, notes, and exercises from the live AI Engineering classes. It is designed to be a beginner-friendly learning resource for anyone starting their journey into AI Engineering with Python.
+This repository tracks the complete journey of the **AI Engineering live course**. Each week contains the concepts, code, exercises, and homework covered in class, organized for future revision and project growth.
 
----
+The repository is built as a modern Python project using **uv** for dependency management, **Git** for version control, and **Jupyter Notebooks** + **Python scripts** for hands-on learning.
 
-## About This Repository
-
-This project tracks the topics covered in each lecture. Each session's learnings are documented here along with the relevant commands, concepts, and code examples. The goal is to build a strong foundation in Python project setup, dependency management, version control, and eventually AI/ML tooling.
+> **Status:** Week 1 is complete. Week 2 will be added as the course progresses.
 
 ---
 
-## Lecture : 26-09-2026
+## 📚 Course Roadmap
 
-### What we covered today
-
-- **Git basics**: initializing a repository, connecting to GitHub, authenticating with a Personal Access Token (PAT), pulling remote changes, and pushing local commits.
-- **Project setup with uv**: creating a modern Python project using the `uv init` command.
-- **Dependency management**: adding packages like Pydantic using `uv add`.
-- **Lock files**: understanding how `uv.lock` ensures reproducible environments.
-- **README and project structure**: documenting the repository for future learners.
+| Week | Focus Area | Status |
+|------|-----------|--------|
+| **Week 1** | Python Foundations for AI Engineering | ✅ Complete |
+| **Week 2** | *(To be updated based on upcoming classes)* | 🔄 Upcoming |
 
 ---
 
-## What is uv?
+## 🗓️ Week 1: Python Foundations for AI Engineering
 
-`uv` is a modern, extremely fast Python package and project manager written in Rust. It combines the functionality of multiple older tools into one:
+### Overview
 
-- Python installation and version management
-- Virtual environment creation
-- Package installation
-- Dependency resolution
-- Lock file generation
-- Project management
+Week 1 establishes the Python skills required for modern AI Engineering work. Topics progress from basic language features to object-oriented programming, asynchronous I/O, API calls, and finally data validation with Pydantic — all of which are essential when building AI applications that call LLMs, fetch data concurrently, and validate structured inputs/outputs.
 
-Instead of running multiple commands like:
+### Topics Covered
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install pydantic
-```
+#### 1. Project Setup & Tooling (`uv`, Git, VS Code)
 
-You can do the same with:
+- Initializing a Python project with `uv init`
+- Understanding `pyproject.toml` as the project manifest (similar to Maven's `pom.xml`)
+- Dependency management with `uv add` and reproducible installs via `uv.lock`
+- Virtual environment handling
+- Git workflow: init, remote, pull, add, commit, push using a Personal Access Token (PAT)
+- Difference between `.py` production scripts and `.ipynb` learning notebooks
 
-```bash
-uv add pydantic
-```
+#### 2. Python Fundamentals
 
-`uv` automatically updates `pyproject.toml`, installs the package, and keeps the lock file in sync.
+- Variables, dynamic typing, and mutability vs. rebinding
+- Basic types: `str`, `int`, `float`, `bool`, `NoneType`
+- The `is None` vs `not value` distinction for missing-value checks
+- String formatting with f-strings, `.strip()`, `.upper()`, `.split()`, `.join()`
+- Control flow: `if/elif/else`, `for`, `while`, `continue`, `break`
+- Core collections: `list`, `dict`, `tuple`, `set`
+- Functions, type hints, and the mutable default argument trap
+- Exception handling with `try/except/else/finally` and custom exceptions
+- Modules and imports
+- List comprehensions
+
+#### 3. Object-Oriented Programming
+
+- Classes, `__init__`, `self`, and instance attributes
+- `@classmethod` as an alternative constructor
+- `@staticmethod` for utility functions inside a class namespace
+- `@property` for computed attributes
+- Inheritance and `super()`
+- Method overriding
+- Composition (critical for AI agent design)
+- Duck typing
+- Dataclasses for reducing boilerplate
+- Variadic arguments `*args` and `**kwargs` for flexible function signatures
+
+#### 4. Asynchronous I/O
+
+- Why async matters for AI Engineering (API calls, LLM requests, database queries)
+- `async def` coroutines and `await`
+- Sequential vs. concurrent execution with `asyncio.gather()`
+- The event loop and `asyncio.run()` for `.py` scripts
+- Top-level `await` in Jupyter notebooks
+- Async generators and `async for`
+- Real HTTP requests using `httpx.AsyncClient`
+- Concurrent API calls to JSONPlaceholder
+- Combining user profile, posts, and todos into a single dictionary before sending to an LLM
+
+#### 5. Pydantic: Data Validation & Serialization
+
+- `BaseModel` and runtime type enforcement
+- Required vs. optional fields
+- Nested models
+- `Field()` constraints: `min_length`, `max_length`, `ge`, `le`, `gt`, `lt`, `alias`
+- Modern `Annotated` syntax
+- `@field_validator` for single-field rules
+- `@model_validator` for cross-field rules
+- Specialized types: `EmailStr`, `SecretStr`
+- `ConfigDict(extra="forbid")`
+- Serialization pipeline: `model_validate()`, `model_dump()`, `model_dump_json()`
+
+### Week 1 Files
+
+| File | Description |
+|------|-------------|
+| `src/ai_engg_live/1_fundamentals.ipynb` | Python basics: types, strings, control flow, collections, functions, exceptions, modules, comprehensions |
+| `src/ai_engg_live/1_homework[26-10-2026].ipynb` | Week 1 fundamentals homework: casting, string formatting, retry loops, collections, safe logging |
+| `src/ai_engg_live/2_oops_in_python.ipynb` | OOP concepts: classes, inheritance, composition, dataclasses, `*args`/`**kwargs` |
+| `src/ai_engg_live/3_learn_async_io.ipynb` | Async I/O: coroutines, `asyncio.gather`, event loop, `httpx.AsyncClient`, concurrent API calls |
+| `src/ai_engg_live/4.1_Api_call.py` | Standalone async script: fetch a single post with `httpx` |
+| `src/ai_engg_live/4.2_API_call.py` | Standalone async script: fetch user, post, and todo concurrently |
+| `src/ai_engg_live/5_learn_Pyndatic.ipynb` | Pydantic models, validation, constraints, nested models, serialization, and homework solutions |
+| `src/ai_engg_live/homework[26-10-2026].ipynb` | Additional homework notebook |
+| `src/ai_engg_live/__init__.py` | Package entry point with a simple `main()` function |
+
+### Week 1 Key Takeaways
+
+1. **Modern Python project setup** uses `uv` for fast dependency management and `pyproject.toml` for configuration.
+2. **Type hints are documentation**, not runtime enforcement; use **Pydantic** when you need real validation.
+3. **Async I/O** lets AI applications fetch multiple data sources concurrently instead of waiting sequentially.
+4. **Pydantic** is the bridge between raw JSON (from APIs or LLMs) and reliable Python objects.
+5. **OOP patterns** like composition and duck typing are heavily used when designing AI agents and tool systems.
 
 ---
 
-## `pyproject.toml` is like `pom.xml`
+## 🗓️ Week 2: Coming Soon
 
-If you come from a Java or Maven background, `pyproject.toml` serves the same purpose as `pom.xml`:
-
-| Maven | Python with uv |
-|-------|----------------|
-| `pom.xml` | `pyproject.toml` |
-| `<dependency>` blocks | `dependencies` list |
-| Manual version management | `uv add package-name` |
-| Build plugins | `[build-system]` section |
-
-Example of adding a dependency:
-
-```bash
-uv add pydantic
-```
-
-This updates `pyproject.toml`:
-
-```toml
-dependencies = [
-    "pydantic>=2.13.5",
-]
-```
+> This section will be updated after the Week 2 classes are delivered.
+> Topics may include: working with LLM APIs, prompt engineering basics, embeddings, vector databases, or building simple AI agents.
 
 ---
 
-## What is `uv.lock`?
-
-`uv.lock` is a lock file that records the exact versions of every package and its transitive dependencies installed in your environment.
-
-Benefits of using a lock file:
-
-- **Reproducibility**: everyone on the team gets the same package versions.
-- **Stability**: avoids unexpected breaking changes from automatic updates.
-- **Faster installs**: dependency resolution is already done.
-
-It is similar to:
-
-- `package-lock.json` in Node.js
-- `yarn.lock` in Yarn
-- `requirements.txt` with pinned versions
-
-Useful commands:
-
-```bash
-uv lock      # update the lock file
-uv sync      # install packages exactly as listed in uv.lock
-```
-
----
-
-## What is Pydantic?
-
-Pydantic is a Python library for data validation and settings management. It uses Python type hints to validate that your data matches the expected structure.
-
-### Why use Pydantic?
-
-- Automatic data validation
-- Clear and helpful error messages
-- Easy conversion between Python objects and JSON
-- Less manual error checking
-- Widely used in FastAPI, LangChain, and AI/ML projects
-
-### Example
-
-```python
-from pydantic import BaseModel
-
-class User(BaseModel):
-    name: str
-    age: int
-    email: str
-
-user = User(name="Pritish", age=25, email="pritish@example.com")
-print(user)
-```
-
-If invalid data is passed, Pydantic raises a clear error:
+## 🏗️ Project Structure
 
 ```text
-age: Input should be a valid integer
-email: The email address is not valid
-```
-
----
-
-## Project Structure
-
-```text
-ai_engg_personal_course_code/
+ai_engg_live/
 ├── .gitignore                  # Files and folders ignored by Git
-├── .python-version             # Python version used by the project
-├── pyproject.toml              # Project configuration (like Maven's pom.xml)
+├── .python-version             # Python version used by uv/pyenv
+├── pyproject.toml              # Project metadata, dependencies, build settings
 ├── uv.lock                     # Exact dependency versions for reproducibility
 ├── README.md                   # This file
 └── src/
     └── ai_engg_live/
-        └── __init__.py         # Main Python package and entry point
+        ├── __init__.py         # Package entry point
+        ├── 1_fundamentals.ipynb
+        ├── 1_homework[26-10-2026].ipynb
+        ├── 2_oops_in_python.ipynb
+        ├── 3_learn_async_io.ipynb
+        ├── 4.1_Api_call.py
+        ├── 4.2_API_call.py
+        ├── 5_learn_Pyndatic.ipynb
+        └── homework[26-10-2026].ipynb
 ```
 
-### File descriptions
+### File Descriptions
 
-- **`README.md`**: Project overview and lecture notes.
-- **`.gitignore`**: Prevents temporary or environment-specific files from being committed.
-- **`pyproject.toml`**: Defines project metadata, dependencies, and build settings.
+- **`README.md`**: Week-wise course overview and project documentation.
+- **`.gitignore`**: Prevents temporary, environment-specific, or IDE files from being committed.
+- **`pyproject.toml`**: Project configuration, dependencies, and build backend (equivalent to Maven's `pom.xml`).
 - **`.python-version`**: Stores the Python version so `uv` or `pyenv` can use it automatically.
-- **`src/ai_engg_live/__init__.py`**: The Python package's main module. Contains the `main()` function as the project entry point.
-- **`uv.lock`**: Lock file that pins exact dependency versions.
+- **`uv.lock`**: Lock file that pins exact dependency versions for reproducible installs.
+- **`src/ai_engg_live/__init__.py`**: The package's main module and entry point.
+- **`.ipynb` notebooks**: Interactive learning, experimentation, and homework.
+- **`.py` scripts**: Clean, reusable, production-style code examples.
 
 ---
 
-## Note on `.py` vs `.ipynb` Files
+## 🛠️ Common Commands
 
-- **`.py` files**: Used for production-grade applications and final scripts.
-- **`.ipynb` files (Jupyter Notebooks)**: Used for learning, experimentation, and quick interactive changes.
+### uv Commands
 
-In this course, we will use both. Notebooks help us explore ideas quickly, while `.py` files help us structure clean, reusable code.
+```bash
+uv init                                                      # Create a new Python project
+uv add <package-name>                                        # Add a dependency
+uv remove <package-name>                                     # Remove a dependency
+uv lock                                                      # Update the lock file
+uv sync                                                      # Install dependencies exactly as in uv.lock
+uv run python src/ai_engg_live/__init__.py                   # Run a script inside the project environment
+uv run python src/ai_engg_live/4.2_API_call.py             # Run an async API script
+```
 
----
-
-## Common Commands
-
-### Git commands
+### Git Commands
 
 ```bash
 git init -b main                                             # Initialize a Git repo on the main branch
@@ -185,20 +176,9 @@ git commit -m "Your commit message"                          # Commit staged cha
 git push origin main                                         # Push commits to GitHub
 ```
 
-### uv commands
-
-```bash
-uv init                                                      # Create a new Python project
-uv add <package-name>                                        # Add a dependency
-uv remove <package-name>                                     # Remove a dependency
-uv lock                                                      # Update the lock file
-uv sync                                                      # Install dependencies from uv.lock
-uv run python <file.py>                                      # Run a Python file inside the project environment
-```
-
 ---
 
-## How to Use This Repository
+## 🚀 How to Use This Repository
 
 1. Clone the repository:
    ```bash
@@ -211,19 +191,30 @@ uv run python <file.py>                                      # Run a Python file
    uv sync
    ```
 
-3. Run the main script:
+3. Run the package entry point:
    ```bash
    uv run python src/ai_engg_live/__init__.py
    ```
 
+4. Open the notebooks in VS Code or JupyterLab and run the cells week by week.
+
 ---
 
-## Author
+## 📌 Notes
+
+- The project uses **Python 3.13+** as specified in `pyproject.toml`.
+- Notebooks use **top-level `await`**, which is supported because Jupyter already runs an event loop.
+- Standalone `.py` async scripts use `asyncio.run(main())` as the entry point.
+- `SecretStr` values are hidden by default during serialization to avoid leaking API keys in logs.
+
+---
+
+## 👤 Author
 
 - **Pritish Raj** - [pritishraj.official@gmail.com](mailto:pritishraj.official@gmail.com)
 
 ---
 
-## License
+## 📜 License
 
 This repository is for educational purposes related to the live AI Engineering course.
