@@ -4,20 +4,15 @@ This repository tracks the complete journey of the **AI Engineering live course*
 
 The repository is built as a modern Python project using **uv** for dependency management, **Git** for version control, and **Jupyter Notebooks** + **Python scripts** for hands-on learning.
 
-> **Status:** Week 1 is complete. Week 2 will be added as the course progresses.
+---
+
+
+Python Foundations for AI Engineering --> Complete 
+
 
 ---
 
-## 📚 Course Roadmap
-
-| Week | Focus Area | Status |
-|------|-----------|--------|
-| **Week 1** | Python Foundations for AI Engineering | ✅ Complete |
-| **Week 2** | *(To be updated based on upcoming classes)* | 🔄 Upcoming |
-
----
-
-## 🗓️ Week 1: Python Foundations for AI Engineering
+## Python Foundations for AI Engineering
 
 ### Overview
 
@@ -85,7 +80,7 @@ Week 1 establishes the Python skills required for modern AI Engineering work. To
 - `ConfigDict(extra="forbid")`
 - Serialization pipeline: `model_validate()`, `model_dump()`, `model_dump_json()`
 
-### Week 1 Files
+### Files
 
 | File | Description |
 |------|-------------|
@@ -99,7 +94,7 @@ Week 1 establishes the Python skills required for modern AI Engineering work. To
 | `src/ai_engg_live/homework[26-10-2026].ipynb` | Additional homework notebook |
 | `src/ai_engg_live/__init__.py` | Package entry point with a simple `main()` function |
 
-### Week 1 Key Takeaways
+### Key Takeaways
 
 1. **Modern Python project setup** uses `uv` for fast dependency management and `pyproject.toml` for configuration.
 2. **Type hints are documentation**, not runtime enforcement; use **Pydantic** when you need real validation.
@@ -109,12 +104,6 @@ Week 1 establishes the Python skills required for modern AI Engineering work. To
 
 ---
 
-## 🗓️ Week 2: Coming Soon
-
-> This section will be updated after the Week 2 classes are delivered.
-> Topics may include: working with LLM APIs, prompt engineering basics, embeddings, vector databases, or building simple AI agents.
-
----
 
 ## 🏗️ Project Structure
 
